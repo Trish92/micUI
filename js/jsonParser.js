@@ -1,8 +1,14 @@
 var a = {};
 $.getJSON('./data/articles.json', function (data) {
     a = data;
-
     $.each(a, function(idx, elem){
-        $('table#tbl TBODY').append('<tr style="background-color:#f8f6f8;"><td>'+elem.id+'</td><td style="background-color:#f8f6f8;">'+elem.title +'</td><td>'+elem.shares +'</td><td>'+elem.views  +'</td><td>'+elem.image +'</td><td>'+elem.url +'</td><td>'+elem.words +'</td><td>'+elem.profile +'</td></tr>');
+        var htmlString =
+            '<tr>' +
+                '<td><img src="'+elem.image +'"/>'+elem.title +'</td>' + // unpublished article header
+                '<td>'+elem.profile.first_name+' '+elem.profile.last_name +'</td>' + //author
+                '<td>'+elem.words +'</td>' + // words
+                '<td>'+elem.publish_at+'</td>' + //submitted time
+            '</tr>';
+        $('table#tbl TBODY').append(htmlString);
     });
 });
