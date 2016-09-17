@@ -1,0 +1,3 @@
+.table-bordered>tbody>tr:nth-child(odd)>td, .table-bordered>tbody>tr:nth-child(odd)>th {
+    background-color: lightblue;
+}
