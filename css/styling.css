@@ -1,12 +1,48 @@
 .table-bordered>tbody>tr:nth-child(odd)>td {
     background-color: #f8f6f8;
 }
+
 .table-bordered>tbody>tr:nth-child(even)>td {
     background-color: #f4f2f4;
 }
+
 thead {
     background: #af4d4d;
 }
+
 thead > tr > th {
     color: #f8f6f8;
+    font-size: xx-small;
+}
+
+tbody > tr > td > img {
+    float: left;
+}
+
+img{
+    height: 11%;
+    width: 6%;
+    margin-right: 1%;
+}
+
+.unPublishedArticle {
+    color: #416488;
+    font-weight: 600;
+    font-family: sans-serif;
+    font-size: smaller;
+}
+
+.sortableColumn{
+    color: black;
+    font-weight: 400;
+    font-family: sans-serif;
+    font-size: x-small;
+    text-align: center;
+}
+
+.authorName{
+    color: #416488;
+    font-weight: 500;
+    font-family: sans-serif;
+    font-size: xx-small;
 }
