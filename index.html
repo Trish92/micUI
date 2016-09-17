@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="./css/styling.css">
 
 </head>
-<body>
+<body onload="init()">
 
 <div class="container">
     <table id="tbl" class="table table-bordered">
@@ -25,6 +25,7 @@
         <tbody>
         </tbody>
     </table>
+    <input type="button" value="Load More" onclick="loadMore()">
 </div>
 <script type="text/javascript" src="./js/jsonParser.js"></script>
 </body>
