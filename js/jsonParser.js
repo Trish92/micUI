@@ -27,10 +27,10 @@ function showData() {
         var elem = articlesData[i];
         var htmlString =
             '<tr>' +
-            '<td><img src="'+elem.image +'"/>'+elem.title +'</td>' + // unpublished article header
-            '<td>'+elem.profile.first_name+' '+elem.profile.last_name +'</td>' + //author
-            '<td>'+elem.words+'</td>' + // words
-            '<td>'+elem.publish_at+'</td>' + //submitted time
+            '<td><img src="'+elem.image +'"/><div class="unPublishedArticle">'+elem.title +'</div></td>' + // unpublished article header
+            '<td class="authorName">'+elem.profile.first_name+' '+elem.profile.last_name +'</td>' + //author
+            '<td class="sortableColumn">'+elem.words+'</td>' + // words
+            '<td class="sortableColumn">'+elem.publish_at+'</td>' + //submitted time
             '</tr>';
         $('table#tbl TBODY').append(htmlString);
     }
