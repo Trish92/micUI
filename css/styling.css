@@ -7,7 +7,7 @@
 }
 
 thead {
-    background: #af4d4d;
+    background: linear-gradient(#b73e3e, rgb(138, 1, 1));
 }
 
 thead > tr > th {
