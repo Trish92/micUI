@@ -4,3 +4,9 @@
 .table-bordered>tbody>tr:nth-child(even)>td {
     background-color: #f4f2f4;
 }
+thead {
+    background: #af4d4d;
+}
+thead > tr > th {
+    color: #f8f6f8;
+}
