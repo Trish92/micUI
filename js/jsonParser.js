@@ -1,12 +1,14 @@
 var a = {};
 var currentCounter=0;
 var articlesData = [];
-var articlesVisited = {}
+var articlesVisited = {};
+var numOfArticles;
 
 function init() {
     $.getJSON('./data/articles.json', function (data) {
         articlesData = data;
     }).then( function () {
+        numOfArticles = articlesData.length;
         showData();
     });
     articlesVisited.articles = true;
@@ -34,6 +36,7 @@ function showData() {
             '</tr>';
         $('table#tbl TBODY').append(htmlString);
     }
+    document.getElementById('articleCount').innerHTML = numOfArticles;
     currentCounter = i;
 }
 
@@ -42,12 +45,11 @@ function loadMore() {
 }
 
 function getMoreData() {
-    console.log("old data",articlesData);
     $.getJSON('./data/more-articles.json', function (data) {
         articlesData = data;
     }).then( function () {
+        numOfArticles = numOfArticles + articlesData.length;
         articlesVisited.moreArticles = true;
-        console.log("new data",articlesData,articlesVisited);
         showData();
     });
     //reset current counter
