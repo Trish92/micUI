@@ -3,6 +3,8 @@ var currentCounter=0;
 var articlesData = [];
 var articlesVisited = {};
 var numOfArticles;
+var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
 
 function init() {
     $.getJSON('./data/articles.json', function (data) {
@@ -32,7 +34,7 @@ function showData() {
             '<td><img src="'+elem.image +'"/><div class="unPublishedArticle">'+elem.title +'</div></td>' + // unpublished article header
             '<td class="authorName">'+elem.profile.first_name+' '+elem.profile.last_name +'</td>' + //author
             '<td class="sortableColumn">'+elem.words+'</td>' + // words
-            '<td class="sortableColumn">'+elem.publish_at+'</td>' + //submitted time
+            '<td data-value="'+elem.publish_at+'" class="sortableColumn">'+getFormattedDate(elem.publish_at)+'</td>' + //submitted time
             '</tr>';
         $('table#tbl TBODY').append(htmlString);
     }
@@ -42,6 +44,11 @@ function showData() {
 
 function loadMore() {
     showData();
+}
+
+function getFormattedDate( dateAsString ) {
+    var publishedDate = new Date( dateAsString );
+    return publishedDate.getDay() + " " + monthNames[publishedDate.getMonth()] + " " + publishedDate.getFullYear() + ", " + getTimeOfDay(publishedDate.getHours()) ;// + ":" + publishedDate.getMinutes();
 }
 
 function getMoreData() {
@@ -54,4 +61,13 @@ function getMoreData() {
     });
     //reset current counter
     currentCounter = 0;
+}
+
+function getTimeOfDay(time) {
+    if( time == 12 ){
+        return time + " PM";
+    }else if(time<12)
+        return time + " AM";
+    else
+        return (time - 12) + " PM";
 }

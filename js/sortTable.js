@@ -13,8 +13,8 @@ function sortTable(table, col, reverse) {
     }else{
         tr = tr.sort(function (a, b) {
             return reverse
-                * (a.cells[col].textContent.trim()
-                        .localeCompare(b.cells[col].textContent.trim())
+                * ( a.cells[col].getAttribute('data-value')
+                        .localeCompare(b.cells[col].getAttribute('data-value') )
                 );
         });
     }
