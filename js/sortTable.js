@@ -1,4 +1,8 @@
 function sortTable(table, col, reverse) {
+    //set cookie
+    var cookie = ['col=', col,reverse];
+    document.cookie = cookie;
+    
     var tb = table.tBodies[0],
         tr = Array.prototype.slice.call(tb.rows, 0),
         i;

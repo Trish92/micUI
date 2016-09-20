@@ -12,9 +12,11 @@ function init() {
     }).then( function () {
         numOfArticles = articlesData.length;
         showData();
+        applyLastTableSortOrder();
     });
     articlesVisited.articles = true;
     makeAllSortable();
+
 }
 
 function showData() {
@@ -70,4 +72,15 @@ function getTimeOfDay(time) {
         return time + " AM";
     else
         return (time - 12) + " PM";
+}
+
+function getCookie(name) {
+    var value = "; " + document.cookie;
+    var parts = value.split("; " + name + "=");
+    if (parts.length == 2) return parts.pop().split(";").shift();
+}
+
+function applyLastTableSortOrder() {
+    var sortOrder = getCookie('col').slice(1).split(',');
+    sortTable(document.getElementById('tbl'), parseInt(sortOrder[0]), parseInt(sortOrder[1]) );
 }
